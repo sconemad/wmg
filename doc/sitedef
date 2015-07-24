@@ -1,0 +1,20 @@
+# Site definition file
+
+  my $package = "wmg";
+  my $version = "1.0.0";
+
+  $site->{title} = "$package-$version manual";
+  $site->{author} = "wedge";
+  $site->{base} = "http://www.sconemad.com/wmg/doc";
+  $site->{copyright} = "Copyright (c) 2003-2006 Andrew Wedgbury";
+  $site->{editor} = 'editor@sconemad.com';
+  $site->{webmaster} = 'webmaster@sconemad.com';
+  $site->{description} = "A perl-driven XHTML compiler";
+
+# Headers
+
+  $site->{HEAD} = "";
+  $site->{HEAD} .= "<link rel='stylesheet' ".
+                   "href='/print.css' media='print' type='text/css' />\n";
+  $site->{HEAD} .= "<link rel='stylesheet' ".
+                   "href='/main.css' media='screen' type='text/css' />\n";

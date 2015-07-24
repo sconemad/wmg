@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html>
+<head>
+<meta http-equiv='content-type' content='text/html; charset=utf-8' />
+<link rel='shortcut icon' href='./favicon.ico' />
+<title>Global Site Configuration - wmg-1.0.0 manual</title>
+<link rel='stylesheet' href='./print.css' media='print' type='text/css' />
+<link rel='stylesheet' href='./main.css' media='screen' type='text/css' />
+
+</head>
+<body>
+
+<div id='header' class='general'>
+<h1>Global Site Configuration</h1>
+</div>
+<div class='box'>
+<div class='art-general'>
+<p>
+A file called "sitedef" in the site's root directory specifies global 
+configuration settings for the site. This basically consisits of perl commands
+which are evaluated by <strong>wmg</strong> before processing the articles.
+The <em>$site</em> hash-ref should be used to store any global configuration 
+settings, which can then be accessed by any page later on. The following is
+a list of standard settings used by <strong>wmg</strong>, though you are free
+to add anything else for your own use:
+</p>
+
+<ul>
+  <li>
+  {title} - The site's title, included by default in the &lt:title&gt; section,
+  and at the top of each page.
+  </li>
+  <li>
+  {author} - The username of the author of the site.
+  </li>
+  <li>
+  {base} - The site's base URL when published (e.g. "http://www.blah.com").
+  </li>
+  <li>
+  {copyright} - Copyright notice for site, included by default at the foot of
+  each page.
+  </li>
+  <li>
+  {editor} - Email address of the site's editor.
+  </li>
+  <li> 
+  {webmaster} - Email address of the site's webmaster, included by default at
+  the foot of each page.
+  </li>
+  <li>
+  {description} - A brief description of the site, included by default in RSS
+  feeds.
+  </li>
+  <li>
+  {HEAD} - Additional headers to insert in the &lt;head&gt; section of XHTML
+  files. Here you can add links to stylesheets, alternative versions 
+  (e.g. RSS feeds), "Favourites" icons, metadata, etc.
+  </li>
+  <li>
+  {NEWS} - XHTML formatted news from WMG::news::make_news(). Use to include
+  news from external RSS feeds on your site.
+  </li>
+</ul>
+</div>
+</div>
+
+
+<div id="side">
+
+
+
+</div>
+<address>
+Copyright (c) 2003-2006 Andrew Wedgbury / webmaster (at) sconemad (dot) com
+</address>
+</body>
+</html>

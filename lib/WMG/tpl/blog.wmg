@@ -1,0 +1,57 @@
+<?WMG
+
+# Blog articles
+my $b = $src->{BLOG};
+my $cal = WMG::calender->new;
+my $prev_dcode="";
+
+foreach my $art (@{$b->{SUBS}}) {
+
+  # Check if article is ready for publishing
+  next if (!$art->pub());
+
+  my $type = $art->type();
+
+  # Box
+  print "<div class='box'>\n";
+  print "<div class='art-$type'>\n";
+
+  # Day anchor
+  my $dcode = $art->dcode();
+  if ($art->dcode() ne $prev_dcode) {
+    print "<a name='$dcode'></a>\n";
+  }
+  $prev_dcode=$art->dcode();
+  
+  # Title
+  my $perma = $art->{name}.".html";
+  my $date = $art->date_string(3);
+  print "<h2>\n";
+  print "<span class='date'>$date</span>\n";
+  print "<a href='$perma' title='Permanent link to this item'>";
+  print $art->{title};
+  print "</a>\n";
+  print "</h2>\n";
+
+  # Content/description
+  if (defined $art->{description}) {
+    print "<p>\n";
+    $self->wmg_str($art->{description});
+    print "\n";
+    print "</p>\n";
+    print "<p><a href='$perma'>more...</a></p>\n";
+  } else {
+    $self->wmg_str($art->{content});
+  }
+
+  print "\n";
+  print "</div>\n";
+  print "</div>\n\n";
+
+  # Add to calender
+  $cal->add_month($art->mcode());
+  $cal->add_link($dcode,"#$dcode",0);
+}
+$src->{calender}=$cal;
+
+?>

@@ -1,0 +1,10 @@
+
+1.1.0 2006-04-21 Andrew Wedgbury <wedge@sconemad.com>
+
+	* Now supports Windows with ActivePerl + ImageMagick.
+	* Image annotation and scaling.
+	* Fixed lots of problems with path handling.
+
+1.0.0 2006-02-22 Andrew Wedgbury <wedge@sconemad.com>
+
+	* Initial release.

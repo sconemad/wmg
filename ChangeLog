@@ -1,0 +1,20 @@
+
+2007-05-31 Andrew Wedgbury <wedge@sconemad.com>
+
+	* news.pm: Add rudimentry RSS parser to remove dependency on XML::RSS.
+	
+2006-06-21 Andrew Wedgbury <wedge@sconemad.com>
+
+	* doc: Add some documentation.
+
+2006-05-31 Andrew Wedgbury <wedge@sconemad.com>
+
+	* image.pm: Fix path handling.
+	* image.pm: Use PerlMagick API as its more portable.
+	* weblog.pm: Make monthly archive pages optional.
+	* output.pm: Fix CRLF weirdness on Win32.
+	* localiser.pm: Pass through XML declarations.
+		
+2006-02-22 Andrew Wedgbury <wedge@sconemad.com>
+
+	* started.

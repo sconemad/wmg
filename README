@@ -1,0 +1,13 @@
+wmg
+
+wmg is a Perl driven XHTML template compiler that can be used to 
+generate everything from hierarchical documentation to 'blog' style sites.
+
+wmg is open source software, and is released under the terms of the 
+GNU General Public Licence, see the 'COPYING' file for more details.
+
+For further information see the wmg manual. This is in HTML format
+and can be found in the 'doc/html' subdirectory (start with 'index.html').
+
+
+Andrew Wedgbury <wedge@sconemad.com>

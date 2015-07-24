@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html>
+<head>
+<meta http-equiv='content-type' content='text/html; charset=utf-8' />
+<link rel='shortcut icon' href='./favicon.ico' />
+<title>Articles - wmg-1.0.0 manual</title>
+<link rel='stylesheet' href='./print.css' media='print' type='text/css' />
+<link rel='stylesheet' href='./main.css' media='screen' type='text/css' />
+
+</head>
+<body>
+
+<div id='header' class='general'>
+<h1>Articles</h1>
+</div>
+<div class='box'>
+<div class='art-general'>
+<p>
+Articles are loaded from the <em>src</em> directory, starting with "index.xml",
+and recursing through any sub-articles specified in any &lt;subs&gt; sections.
+In addition to this, chronological-style articles are loaded from files named
+"article.xml", in directories under "src/articles". These directories should
+be named in the form "YYYYMMDDhhmmss" (Years, Months, Days, hours, minutes, 
+seconds) - the date and time associated with the article.
+</p>
+
+<p>
+The articles are stored as WMG::article objects, and may be accessed through 
+the site object's {INDEX} member, which specifies the index page. Any sub-page
+may be accessed through this. Chronological articles are stored by a 
+WMG::weblog object, stored as the site's {BLOG} member, which allows additional
+control over the chronological articles (e.g. picking articles between certain
+dates).
+</p>
+</div>
+</div>
+
+
+<div id="side">
+
+
+
+</div>
+<address>
+Copyright (c) 2003-2006 Andrew Wedgbury / webmaster (at) sconemad (dot) com
+</address>
+</body>
+</html>

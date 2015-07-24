@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<article title="Introduction" author="wedge">
+
+<!-- ----+---------+---------+---------+---------+---------+---------+----- -->
+<content>
+
+<p>
+<strong>wmg</strong> is a Perl-based system primarily aimed at generating 
+documents in XHTML format, together with any supporting data (e.g. images). 
+Typical uses include generating web sites and product documentation (including 
+the document you are reading now). The system is driven by a set of 
+<em>templates</em>, which pick sections from input <em>articles</em> to 
+produce output <em>documents</em>. By default these are in XHTML format, but,
+by using different sets of templates, anything is possible. 
+</p>
+
+<pre>
+                |---------|   
+                | ARTICLE | 
+                | -XML    |
+                | -images |
+                |         |
+                |---------|   
+                | ARTICLE | 
+                |  -XML   |
+                 \       /
+                  \-----/
+                   \   /
+      TEMPLATES     \ /       OUTPUT
+      XML+perl ---- wmg ----> XHTML...
+</pre>
+
+<h2>Source</h2>
+
+<p>
+This lives under the <em>src</em> directory, and contains:
+</p>
+
+<ul>
+  <li>
+  Articles - These XML files contain the textual content of the pages in XHTML,
+  as well as other metadata, wrapped in a simple XML format. They can contain 
+  embedded perl commands, using the &lt;?WMG ... ?&gt; syntax.
+  </li>
+  <li>
+  Source data - Data in its original form, which needs to be transformed in 
+  some way to produce the output. An example of this would be images, which 
+  need to be resized and have thumbnails produced for incorporating into an 
+  image gallery.
+  </li>
+</ul>
+
+<p>
+There are two ways in which articles can be stored - in <em>hierarchical</em> 
+format and in <em>chronological</em> format. These can be used together if
+required. In <em>hierarchical</em> format, an article specifies 
+</p>
+
+<h2>Templates</h2>
+
+<p>
+These live in the <em>tpl</em> directory, and contain instructions for 
+transforming the source articles into the output documents. If an article does
+not specify which template to use, "default.wmg" is selected. Template files 
+can include other template files, which allow common page elements to be 
+maintained. A set of standard templates are supplied with 
+<strong>wmg</strong>, which are used if one is not found in the site's 
+<em>tpl</em> directory.
+</p>
+
+<h2>Output</h2>
+
+<p>
+This is placed under the <em>html</em> directory, and contains the output 
+documents and data produced by <strong>wmg</strong>.
+</p>
+
+</content>
+
+</article>

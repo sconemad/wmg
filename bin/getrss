@@ -1,0 +1,32 @@
+#!/usr/bin/perl -w
+#
+# wmg (http://www.sconemad.com/wmg)
+# Copyright (c) 2000-2004 Andrew Wedgbury <wedge@sconemad.com>
+#
+
+use LWP::Simple;
+
+open(FEEDS,"$ENV{HOME}/rss/.feeds") || die "Cannot open feeds file";
+foreach my $addr(<FEEDS>) {
+
+  next if ($addr =~ /^ *$/ || $addr =~ /^ *#/);
+
+  my $name = $addr;
+  if ($name =~ /^http:\/\/(.*)$/) { $name=$1; }
+  $name =~ s/\//\./g;
+
+  print "Updating: $addr ";
+
+  my $str = get($addr);
+  if (!defined $str || $str eq "") {
+    print "FAILED\n";
+    next;
+  }
+
+  open(FILE,">$ENV{HOME}/rss/$name") || die "Cannot open file $name";
+  print FILE $str;
+  close(FILE);
+
+  print "done\n";
+}
+close(FEEDS);

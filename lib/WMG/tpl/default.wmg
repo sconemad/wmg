@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- wmg: default page template -->
+
+<?WMG
+print "<html>\n";
+
+# Page header
+$self->wmg_tpl("header");
+
+print "<body>\n";
+
+# Navigation bar
+$self->wmg_tpl("navbar");
+
+my $type = $src->type();
+
+# Title section
+print "<div id='header' class='$type'>\n";
+print "<h1>". $src->{title} ."</h1>\n";
+my $date_string = $src->date_string(10);
+if ($date_string ne "") {
+  my $wday_string = $src->wday_string(10);
+  print "<div class='date'>Posted on $wday_string $date_string";
+  if ($src->time_string() ne "00:00:00") {
+    print " ". $src->time_string() ." ". $src->timezone();
+  }
+  print "</div>\n";
+}
+print "</div>\n";
+
+# Source article
+if (defined $src->{content}) {
+  print "<div class='box'>\n";
+  print "<div class='art-$type'>\n";
+  $self->wmg_str( $src->{content} );
+  print "\n";
+  print "</div>\n";
+  print "</div>\n\n";
+}
+
+# Blog articles
+$self->wmg_tpl("blog");
+
+# Side section
+$self->wmg_tpl("side");
+
+# Page footer
+$self->wmg_tpl("footer");
+
+print "</body>\n";
+print "</html>\n";
+?>

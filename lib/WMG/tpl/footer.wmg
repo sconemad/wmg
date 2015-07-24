@@ -1,0 +1,18 @@
+<address>
+<?WMG
+if (defined $src->{SITE}->{copyright}) {
+  print $src->{SITE}->{copyright};
+
+  if (defined $src->{SITE}->{webmaster}) {
+    print " / ";
+  }  
+}
+
+if (defined $src->{SITE}->{webmaster}) {
+  my $email = $src->{SITE}->{webmaster};
+  $email =~ s/\./ (dot) /g;
+  $email =~ s/\@/ (at) /g;
+  print "$email";
+}
+?>
+</address>

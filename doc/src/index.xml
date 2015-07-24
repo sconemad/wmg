@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<article title="Contents" author="wedge">
+
+<subs>
+intro
+sitedef
+articles
+</subs>
+
+<!-- ----+---------+---------+---------+---------+---------+---------+----- -->
+<content>
+
+<p>
+<em><strong>wmg</strong> - A Perl-based XHTML template compiler.</em>
+</p>
+
+<ul>
+<?WMG
+foreach my $art (@{$src->{SUBS}}) {
+  next if (!$src->pub());
+  my $title = $art->{title};
+  my $href = $art->{name}.".html";
+  print "<li><a href='$href'>$title</a></li>\n";
+}
+?>
+</ul>
+
+</content>
+
+</article>

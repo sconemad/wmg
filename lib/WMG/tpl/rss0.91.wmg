@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<rss version="0.91">
+<channel>
+
+<?WMG
+my $site = $src->{SITE};
+
+print tag("title",$site->{title});
+print tag("link",$site->{base});
+print tag("description",$site->{description});
+print tag("language","en-uk");
+print tag("copyright",$site->{copyright});
+print tag("managingEditor",$site->{editor});
+print tag("webMaster",$site->{webmaster});
+print "\n";
+
+print "<image>\n";
+print tag("url",$site->{base});
+print tag("title",$site->{title});
+print tag("link",$site->{base});
+print tag("description",$site->{description});
+print "</image>\n";
+print "\n";
+
+if (defined $src->{content}) {
+  $self->wmg_str( $src->{content} );
+}
+
+my $b = $src->{BLOG};
+foreach my $art (@{$b->{SUBS}}) {
+
+  # Check if article is ready for publishing
+  next if (!$art->pub());
+
+  print "<item>\n";
+  
+  print tag("title",$art->{title});
+  
+  my $href = $site->{base}. $art->{name}. '.html';
+  print tag("link",$href);
+
+  my $desc = $art->{description} || $art->{content}; 
+  $desc =~ s/ *[\n\r]+ */ /g;
+  $desc =~ s/\<\?WMG.*\?\>//g;
+  $desc =~ s/\<[^\>]+\>//g;
+  $desc =~ s/\&[^ ]+;//g;
+  print "<description>$desc</description>\n";
+
+  print "</item>\n\n";
+}
+?>
+
+</channel>
+</rss>

@@ -1,0 +1,14 @@
+WMG (Windows) setup instructions
+--------------------------------
+
+Download and install ActivePerl:
+http://downloads.activestate.com/ActivePerl/Windows/5.8/ActivePerl-5.8.7.815-MSWin32-x86-211909.msi
+
+Run Start menu > Programs > ActivePerl 5.8.1 build 815 > Perl package manager
+Type at the ppm> prompt:
+install XML-RSS
+(wait for it to finish, then)
+exit
+
+Download and install ImageMagick:
+http://www.imagemagick.org/download/binaries/ImageMagick-6.2.6-3-Q16-windows-dll.exe

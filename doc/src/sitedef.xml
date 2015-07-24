@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<article title="Global Site Configuration" short="Global config" author="wedge">
+
+<!-- ----+---------+---------+---------+---------+---------+---------+----- -->
+<content>
+
+<p>
+A file called "sitedef" in the site's root directory specifies global 
+configuration settings for the site. This basically consisits of perl commands
+which are evaluated by <strong>wmg</strong> before processing the articles.
+The <em>$site</em> hash-ref should be used to store any global configuration 
+settings, which can then be accessed later on. The following is a list of 
+standard settings used by <strong>wmg</strong>, though you are free to add 
+anything else for your own use:
+</p>
+
+<ul>
+  <li>
+  {title} - The site's title, included by default in the &lt;title&gt; section,
+  and at the top of each page.
+  </li>
+  <li>
+  {author} - The username of the site's author.
+  </li>
+  <li>
+  {base} - The site's base URL when published (e.g. "http://www.blah.com").
+  </li>
+  <li>
+  {copyright} - Copyright notice for site, included by default at the foot of
+  each page.
+  </li>
+  <li>
+  {editor} - Email address of the site's editor.
+  </li>
+  <li> 
+  {webmaster} - Email address of the site's webmaster, included by default at
+  the foot of each page.
+  </li>
+  <li>
+  {description} - A brief description of the site, included by default in RSS
+  feeds.
+  </li>
+  <li>
+  {HEAD} - Additional headers to insert in the &lt;head&gt; section of XHTML
+  files. Here you can add links to stylesheets, alternative versions 
+  (e.g. RSS feeds), "Favourites" icons, metadata, etc.
+  </li>
+  <li>
+  {NEWS} - XHTML formatted news from WMG::news::make_news(). Use to include
+  news from external RSS feeds on your site.
+  </li>
+</ul>
+
+</content>
+
+</article>

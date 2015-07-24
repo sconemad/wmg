@@ -1,0 +1,25 @@
+<div id="side">
+
+<?WMG
+
+my $side = $src->{side};
+if (defined $side) {
+  # ASIDE
+  print "<div class='box'>\n";
+  $self->wmg_str($side);
+  print "\n";
+  print "</div>\n\n"
+}
+
+# EXTERNAL NEWS
+
+if (defined $src->{SITE}->{NEWS}) {
+  print "<div class='box'>\n";
+  print "<h2>News</h2>\n";
+  print $src->{SITE}->{NEWS};
+  print "\n</div>\n";
+}
+
+?>
+
+</div>
